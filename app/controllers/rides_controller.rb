@@ -3,9 +3,10 @@ class RidesController < ApplicationController
   end
 
   def create
-    puts "I am here!!"
     @ride=Ride.find(params[:id])
-    @ride.take_ride
+
+    puts @ride.take_ride
+
     redirect_to user_path(@ride.user)
   end
 

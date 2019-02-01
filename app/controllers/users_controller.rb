@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # before_action :require_login
+  # skip_before_action :require_login,only:[:create]
   def index
   end
 
@@ -9,7 +11,7 @@ class UsersController < ApplicationController
 
   def update
     @user=User.find(params[:id])
-    @user.rides.last.take_ride
+    flash[:message]=@user.rides.last.take_ride
     redirect_to user_path(@user)
   end
 
@@ -39,7 +41,6 @@ class UsersController < ApplicationController
   #     redirect_to "/"
   #   end
   # end
-
 
 
 end

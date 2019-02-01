@@ -13,7 +13,9 @@
 <tbody>
 <% @attractions.each do |attraction| %>
  <tr>
- <td><%= link_to "Go on #{attraction.name}",attraction_path(attraction) %></td>
+   <% if !current_user.admin %>
+   <td><%= link_to "Go on #{attraction.name}",attraction_path(attraction) %></td>
+   <% end %>
  <td><%= attraction.tickets %></td>
  <td><%= attraction.nausea_rating %></td>
  <td><%= attraction.happiness_rating %></td>
