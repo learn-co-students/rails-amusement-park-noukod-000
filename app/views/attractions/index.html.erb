@@ -1,0 +1,26 @@
+<h1>Listing attractions</h1>
+<table class="table">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Tickets</th>
+    <th>Nausea Rating</th>
+    <th>Happiness Rating</th>
+    <th>Min Height</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+<% @attractions.each do |attraction| %>
+ <tr>
+ <td><%= link_to "Go on #{attraction.name}",attraction_path(attraction) %></td>
+ <td><%= attraction.tickets %></td>
+ <td><%= attraction.nausea_rating %></td>
+ <td><%= attraction.happiness_rating %></td>
+ <td><%= attraction.min_height %></td>
+ <td><%=link_to "Show #{attraction.name}",attraction_path(attraction)%></td>
+ </tr>
+<% end %>
+</tbody>
+</table>
+<a href="/attractions/new">New Attraction</a>
