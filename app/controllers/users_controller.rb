@@ -1,13 +1,11 @@
 class UsersController < ApplicationController
-  # before_action :require_login
-  # skip_before_action :require_login,only:[:create]
-
   def index
   end
 
   def new
     @user=User.new
   end
+
 
   def update
     @user=User.find(params[:id])
@@ -41,6 +39,7 @@ class UsersController < ApplicationController
   #     redirect_to "/"
   #   end
   # end
+
 
 
 end
