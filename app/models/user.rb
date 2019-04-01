@@ -5,8 +5,14 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def update_userstate(attraction)
-    raise self.tickets = self.tickets - attraction.tickets
-    self.nausea = self.nausea + attraction.nausea_rating
-    self.happiness = self.happiness + attraction.happiness_rating
+    self.tickets = self.tickets - attraction.tickets
+    puts self.tickets.to_s
+    self.save
+    # self.nausea = self.nausea + attraction.nausea_rating
+    # self.happiness = self.happiness + attraction.happiness_rating
+  end
+
+  def mood
+    happiness-nausea >= 0 ? "happy" : "sad"
   end
 end
