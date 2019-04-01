@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def update_userstate(attraction)
-    self.tickets = self.tickets - attraction.tickets
+    raise self.tickets = self.tickets - attraction.tickets
     self.nausea = self.nausea + attraction.nausea_rating
     self.happiness = self.happiness + attraction.happiness_rating
   end
