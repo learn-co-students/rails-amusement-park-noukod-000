@@ -22,4 +22,5 @@
 
 <br>
 
-<%= link_to 'New Attraction', new_attraction_path %>
+<%= link_to "Back to profile", user_path(@current_user) %>
+<%= link_to 'New Attraction', new_attraction_path if @current_user.admin %>
