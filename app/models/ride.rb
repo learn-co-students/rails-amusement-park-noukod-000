@@ -10,7 +10,7 @@ class Ride < ActiveRecord::Base
                 happiness: user.happiness + attraction.happiness_rating)
     # raise riding_errors("tickets")
     # raise conditions.map{|c|  return "user.#{c} - attraction.#{methods.select{|m| m[/\A(\w)*(#{c})(\w)*\z/]}.first}" if eval "(user.#{c} - attraction.#{methods.select{|m| m[/\A(\w)*(#{c})(\w)*\z/]}.first})" }.first
-    return "Sorry. #{conditions.select{|c| c if eval "(user.#{c} - attraction.#{methods.select{|m| m[/\A(\w)*(#{c})(\w)*\z/]}.first} < 0)" }.map { |e| riding_errors(e) }.join(" ")}"
+    "Sorry. #{conditions.select{|c| c if eval "(user.#{c} - attraction.#{methods.select{|m| m[/\A(\w)*(#{c})(\w)*\z/]}.first} < 0)" }.map { |e| riding_errors(e) }.join(" ")}"
   end
 
   private
