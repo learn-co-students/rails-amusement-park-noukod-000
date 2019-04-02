@@ -5,7 +5,7 @@
   <%= f.collection_select :name, User.all, :name, :name, prompt: true %><br><br>
 
   <%= f.label :password %>
-  <%= f.password_field :password %><br><br>
+  <%= f.password_field :password, id: :password %><br><br>
 
   <%= f.submit "Sign In" %>
 <% end %>

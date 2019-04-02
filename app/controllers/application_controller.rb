@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :is_loging?, :current_user
-  before_action :get_rooted
+  before_action :get_rooted, except: [:home]
 
   def is_loging?
     !!current_user

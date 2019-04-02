@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  # skip_before_action :redirect_if_not
+  skip_before_action :get_rooted
 
   def signin
     redirect_to user_path session[:user_id] if is_loging?
