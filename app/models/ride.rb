@@ -5,13 +5,12 @@ class Ride < ActiveRecord::Base
   def take_ride
     conditions = ["tickets", "height"]
     methods = Attraction.attribute_names
+    self.user.update(tickets: user.tickets - attraction.tickets,
+                nausea: user.nausea + attraction.nausea_rating,
+                happiness: user.happiness + attraction.happiness_rating)
     # raise riding_errors("tickets")
     # raise conditions.map{|c|  return "user.#{c} - attraction.#{methods.select{|m| m[/\A(\w)*(#{c})(\w)*\z/]}.first}" if eval "(user.#{c} - attraction.#{methods.select{|m| m[/\A(\w)*(#{c})(\w)*\z/]}.first})" }.first
-    "Sorry. #{conditions.select{|c| c if eval "(user.#{c} - attraction.#{methods.select{|m| m[/\A(\w)*(#{c})(\w)*\z/]}.first} < 0)" }.map { |e| user.update_userstate(attraction); riding_errors(e); }.join(" ")}"
-
-    # errors.map { |e| riding_errors(e)  }.join(" ")
-    # raise errors.inspect
-    # (user.tickets - attraction.tickets >= 0) ? ((user.height - attraction.height >= 0) ? "" : "Sorry. You are not tall enough to ride the #{attraction.name}.") : "Sorry. You do not have enough tickets to ride the #{attraction.name}."
+    return "Sorry. #{conditions.select{|c| c if eval "(user.#{c} - attraction.#{methods.select{|m| m[/\A(\w)*(#{c})(\w)*\z/]}.first} < 0)" }.map { |e| riding_errors(e) }.join(" ")}"
   end
 
   private
