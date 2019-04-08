@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     post "/signin",to:"sessions#create"
     get "/logout",to:"sessions#destroy"
 
-    root "static_pages#index"
+    root "welcome#index"
 end
