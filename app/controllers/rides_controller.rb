@@ -28,8 +28,7 @@ class RidesController < ApplicationController
 
     respond_to do |format|
       if @ride.save
-        @ride.take_ride
-        format.html { redirect_to user_path(@ride.user), notice: 'Ride was successfully created.' }
+        format.html { redirect_to user_path(@ride.user), notice: "#{@ride.take_ride}" }
         format.json { render :show, status: :created, location: @ride }
       else
         format.html { render :new }
