@@ -28,7 +28,8 @@ class RidesController < ApplicationController
 
     respond_to do |format|
       if @ride.save
-        format.html { redirect_to @ride, notice: 'Ride was successfully created.' }
+        @ride.take_ride
+        format.html { redirect_to user_path(@ride.user), notice: 'Ride was successfully created.' }
         format.json { render :show, status: :created, location: @ride }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class RidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ride_params
-      params.fetch(:ride, {})
+      params.require(:ride).permit(:user_id, :attraction_id)
     end
 end
