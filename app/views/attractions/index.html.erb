@@ -12,7 +12,8 @@
   <tbody>
     <% @attractions.each do |attraction| %>
       <tr>
-        <td><%= link_to "Go on #{attraction.name}", attraction %> - <%= attraction.name %></td>
+        <td><%= link_to "Show #{attraction.name}", attraction if @current_user.admin %>
+            <%= link_to "Go on #{attraction.name}", attraction unless @current_user.admin%></td>
         <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
         <td><%= link_to 'Destroy', attraction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
