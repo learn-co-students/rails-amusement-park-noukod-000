@@ -6,8 +6,8 @@ class CreateAllTables < ActiveRecord::Migration[4.2]
       col.integer :nausea
       col.integer :happiness
       col.integer :tickets
-      col.string :height
-      col.boolean :admin, null: false, default: false 
+      col.integer :height
+      col.boolean :admin, null: false, default: false
       col.timestamps
     end
 
