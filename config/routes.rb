@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :users
+  resources :attractions
+  resources :rides
   
-  get 'users/new'
+  # get 'users/new'
 end
