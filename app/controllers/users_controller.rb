@@ -6,12 +6,6 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-    # user.name = params[:user][:name]
-    # user.password = params[:user][:password]
-    # user.nausea = params[:user][:nausea]
-    # user.happiness = params[:user][:happiness]
-    # user.height = params[:user][:height]
-    # user.tickets = params[:user][:tickets]
     if user.save
       session['user_id'] = user.id
       redirect_to user_path(user)
@@ -27,6 +21,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name,:password,:nausea,:happiness,:height,:tickets)
+    params.require(:user).permit(:name,:password,:nausea,:happiness,:height,:tickets,:admin)
   end
 end
