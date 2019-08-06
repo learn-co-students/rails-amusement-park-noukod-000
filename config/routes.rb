@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'application#home'
   get 'signin' => 'sessions#new'
   post 'signin' => 'sessions#create', as: 'login'
+  get 'logout' => 'sessions#logout',as: 'logout'
 end
