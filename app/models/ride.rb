@@ -3,10 +3,6 @@ class Ride < ActiveRecord::Base
   belongs_to :attraction
 
   def take_ride
-
-    user = User.new
-    attraction = Attraction.new
-
     if (self.user.tickets > self.attraction.tickets) && (self.user.height > self.attraction.min_height)
       new_ticket = self.user.tickets - self.attraction.tickets
       new_happiness = self.user.happiness + self.attraction.happiness_rating
