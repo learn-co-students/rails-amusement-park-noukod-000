@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :users, only:[:index,:new,:create,:show]
+  resources :users, :only =>[:index,:new,:create,:show]
+  resources :attractions, :only =>[:index,:show]
   root 'application#home'
   get 'signin' => 'sessions#new'
-  post 'signin' => 'sessions#create', as: 'login'
-  get 'logout' => 'sessions#logout',as: 'logout'
+  post 'signin' => 'sessions#create', :as=> 'login'
+  get 'logout' => 'sessions#logout',:as=> 'logout'
 end
