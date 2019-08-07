@@ -1,5 +1,7 @@
-<p>
-<%@attractions.each do |attraction| %>
-  <p><%= link_to("Go on #{attraction.name}",attraction_path(attraction)) %> </p>
-<%end%>
-</p>
+<div class="center">
+    <h1>Attraction's list</h1>
+    <%@attractions.each do |attraction| %>
+      <p><%= link_to("Go on #{attraction.name}",attraction_path(attraction)) %> </p>
+    <%end%>
+
+</div>

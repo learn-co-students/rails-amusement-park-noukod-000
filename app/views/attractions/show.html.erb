@@ -1,3 +1,10 @@
-<p> Attraction Name: <%= @attraction.name %>
-
-  <%= button_to "Go on this ride",user_path(@user),:method => "get"%>
+<div class="center">
+  <h2> <%=@attraction.name %></h2>
+  <p>Nausea rating: <%=@attraction.nausea_rating%></p>
+  <p>Happiness rating: <%=@attraction.happiness_rating%></p>
+  <p>Min height allowed: <%= @attraction.min_height%></p>
+  <p>Tickets cost:<%= @attraction.tickets%></p>
+  
+  <%= button_to "Go on this ride",user_path(@user),:method => "get"%><br>
+  <%= link_to "Go back to attraction's list",attractions_path %>
+<div>
