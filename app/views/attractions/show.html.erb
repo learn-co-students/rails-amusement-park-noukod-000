@@ -1,2 +1,3 @@
 <p> Attraction Name: <%= @attraction.name %>
-  <%= button_tag "Go on this ride" %>
+
+  <%= button_to "Go on this ride",user_path(@user),:method => "get"%>
