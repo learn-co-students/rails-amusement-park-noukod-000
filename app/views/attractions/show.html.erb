@@ -4,7 +4,11 @@
   <p>Happiness rating: <%=@attraction.happiness_rating%></p>
   <p>Min height allowed: <%= @attraction.min_height%></p>
   <p>Tickets cost:<%= @attraction.tickets%></p>
-  
-  <%= button_to "Go on this ride",user_path(@user),:method => "get"%><br>
+  <%= form_for :ride do |f| %>
+      <%=f.hidden_field :attraction_id, :value=>"#{@attraction.id}"%>
+      <%=f.hidden_field :user_id ,:value=>"#{@user.id}"%>
+      <%= f.submit "Go on this ride" %>
+    <!-- <%= button_to "Go on this ride",user_path(@user),:method => "get"%><br> -->
+  <%end%><br>
   <%= link_to "Go back to attraction's list",attractions_path %>
 <div>
