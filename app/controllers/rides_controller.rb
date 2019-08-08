@@ -2,10 +2,10 @@ class RidesController < ApplicationController
   def create
     ride = Ride.new(ride_params)
 
-    if ride.take_ride
-      ride.save
-      flash[:notice] = "#{ride.take_ride}"
-      redirect_to user_path(ride.user)
+    if ride.save
+        ride.take_ride
+        flash[:notice] = "#{ride.take_ride}"
+        redirect_to user_path(ride.user)
     else
         flash[:notice] = "#{ride.take_ride}"
         redirect_to user_path(ride.user)
