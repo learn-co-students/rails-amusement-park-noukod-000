@@ -1,0 +1,17 @@
+<div class='center'>
+  <div class='info' >
+    <div class="notice">
+        <%= flash[:notice] %>
+    </div>
+
+    <p>
+       <%= @user.admin %><rb>
+      Name: <%= @user.name %><br>
+      Mood: <%= @user.mood %><br>
+      Tickets: <%= @user.tickets %><br>
+      Height: <%= @user.height %><br>
+      <%= link_to("See attractions",attractions_path)%><br>
+      <%= link_to("Log Out",logout_path) %>
+    </p>
+  </div>
+</div>

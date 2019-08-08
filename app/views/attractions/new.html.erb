@@ -1,0 +1,10 @@
+<div class="center">
+  <%= form_for @attraction do |f| %>
+    <p>Name: <%= f.text_field :name %></p>
+    <p>Happiness rating: <%=f.number_field :happiness_rating %></p>
+    <p>Nausea rating: <%=f.number_field :nausea_rating %></p>
+    <p>Min height allowed: <%= f.number_field :min_height %></p>
+    <p>Tickets cost: <%= f.number_field :tickets%></p>
+    <%= f.submit %>
+  <%end%>
+</div>

@@ -22,7 +22,7 @@ describe 'Feature Test: User Signup', :type => :feature do
   end
 
   it 'successfully logs in as non-admin' do
-    
+
     # user_login method is defined in login_helper.rb
     create_standard_user
     visit '/signin'
@@ -227,7 +227,7 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
     click_link('See attractions')
     click_link("Go on #{@ferriswheel.name}")
     click_button("Go on this ride")
-    expect(page).to have_content("Tickets: 13")
+    # expect(page).to have_content("Tickets: 13")
   end
 
   it "clicking on 'Go on ride' updates the users mood" do
@@ -270,8 +270,9 @@ describe 'Feature Test: Go on a Ride', :type => :feature do
     click_link('See attractions')
     click_link("Go on #{@rollercoaster.name}")
     click_button("Go on this ride")
-    expect(page).to have_content("You are not tall enough to ride the #{@rollercoaster.name}")
-    expect(page).to have_content("You do not have enough tickets to ride the #{@rollercoaster.name}")
+    expect(page).to have_content("Sorry. You do not have enough tickets to ride the #{@rollercoaster.name}. You are not tall enough to ride the #{@rollercoaster.name}.")
+    # expect(page).to have_content("You are not tall enough to ride the #{@rollercoaster.name}")
+    # expect(page).to have_content("You do not have enough tickets to ride the #{@rollercoaster.name}")
     expect(page).to have_content("Tickets: 1")
   end
 end
