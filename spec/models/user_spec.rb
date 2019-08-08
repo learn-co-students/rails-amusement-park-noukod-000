@@ -8,7 +8,8 @@ RSpec.describe User, :type => :model do
       :nausea => 5,
       :happiness => 3,
       :tickets => 4,
-      :height => 34
+      :height => 34,
+      :admin => false
     )
   }
 

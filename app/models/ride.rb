@@ -7,11 +7,7 @@ class Ride < ActiveRecord::Base
       new_ticket = self.user.tickets - self.attraction.tickets
       new_happiness = self.user.happiness + self.attraction.happiness_rating
       new_nausea = self.user.nausea + self.attraction.nausea_rating
-      self.user.update(
-        :tickets => new_ticket,
-        :happiness => new_happiness,
-        :nausea => new_nausea
-          )
+      self.user.update(:tickets => new_ticket,:happiness => new_happiness,:nausea => new_nausea)
       return "Thanks for riding the #{self.attraction.name}!"
     elsif tall_enough && !enough_tickets
           return "Sorry. " + tickets_issue
