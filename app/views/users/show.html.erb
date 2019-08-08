@@ -1,6 +1,9 @@
 <div class='center'>
   <div class='info' >
-    <p id="notice"><%= flash[:notice]%></p>
+    <div class="notice">
+        <%= flash[:notice] %>
+    </div>
+
     <p>
        <%= @user.admin %><rb>
       Name: <%= @user.name %><br>
