@@ -9,5 +9,8 @@
       <%=f.hidden_field :user_id ,:value=>"#{@user.id}"%>
       <%= f.submit "Go on this ride" %>
   <%end%><br>
+  <% if current_user.admin?%>
+    <%= link_to 'Edit Attraction',edit_attraction_path%>
+  <%end%>
   <%= link_to "Go back to attraction's list",attractions_path %>
 <div>
