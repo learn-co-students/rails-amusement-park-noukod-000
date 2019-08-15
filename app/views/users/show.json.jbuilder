@@ -1,0 +1,1 @@
+son.partial! "users/user", user: @user
